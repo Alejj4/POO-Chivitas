@@ -1,3 +1,5 @@
+package Punto1;
+
 public class Paciente {
     private String dni;
     private String nombre;
@@ -35,7 +37,7 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return "Paciente{" +
+        return "Punto1.Paciente{" +
                 "dni='" + dni + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", obraSocial='" + obraSocial + '\'' +
