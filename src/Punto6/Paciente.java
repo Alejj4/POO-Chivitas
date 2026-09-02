@@ -23,4 +23,10 @@ public class Paciente {
         return añoActual - añoInt;
     }
 
+    public boolean registrarConsulta(Consulta consulta) {
+        return this.historiaClinica.agregarConsulta(consulta);
+    }
+
+
+
 }
