@@ -45,6 +45,14 @@ public class Consulta {
         this.fechaAtencion = fechaAtencion;
     }
 
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
+
     public String getDiagnostico() {
         return diagnostico;
     }
@@ -75,6 +83,13 @@ public class Consulta {
 
     public void setRequiereSeguimiento(boolean requiereSeguimiento) {
         this.requiereSeguimiento = requiereSeguimiento;
+    }
+
+    @Override
+    public String toString() {
+        return "Consulta [Fecha: " + fechaAtencion + " | Motivo: " + motivo +
+                " | Diagnóstico: " + diagnostico + " | Tratamiento: " + tratamiento +
+                " | Costo: $" + costo + " | Seguimiento: " + (requiereSeguimiento ? "Sí" : "No") + "]";
     }
 }
 

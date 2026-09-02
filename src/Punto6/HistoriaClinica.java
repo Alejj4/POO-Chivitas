@@ -7,40 +7,47 @@ public class HistoriaClinica {
     private int numeroHistoria;
     private List<Consulta> consultasRegistradas;
     private int cantidadConsultas;
+    private int capacidadMaxima;
     private String fechaCreacion;
 
     public HistoriaClinica(int numeroHistoria, String fechaCreacion) {
+        this(numeroHistoria, fechaCreacion, 5);
+    }
+
+    public HistoriaClinica(int numeroHistoria, String fechaCreacion, int capacidadMaxima) {
         this.numeroHistoria = numeroHistoria;
         this.fechaCreacion = fechaCreacion;
+        this.capacidadMaxima = capacidadMaxima;
+        this.consultasRegistradas = new ArrayList<>();
+        this.cantidadConsultas = 0;
     }
 
     public boolean agregarConsulta(Consulta consulta){
-        if(cantidadConsultas<= this.consultasRegistradas.size()){
+        if (consulta != null && this.consultasRegistradas.size() < this.capacidadMaxima) {
             consultasRegistradas.add(consulta);
+            this.cantidadConsultas = this.consultasRegistradas.size();
             System.out.println("Se agrego la consulta");
             return true;
-        }
-        else{
+        } else {
+            System.out.println("No se pudo agregar la consulta: capacidad disponible agotada (" + this.capacidadMaxima + " max).");
             return false;
         }
-
     }
-    public List<Consulta> buscarPorFecha( String fecha){
+
+    public List<Consulta> buscarPorFecha(String fecha){
         List<Consulta> encontradas = new ArrayList<>();
         for (Consulta consul : consultasRegistradas){
             if(consul.getFechaAtencion().equalsIgnoreCase(fecha)){
                 encontradas.add(consul);
             }
-
         }
         return encontradas;
-
     }
 
     public int ConsultasSeguimiento() {
         int contador = 0;
         for (Consulta consul : consultasRegistradas) {
-            if (consul.requiereSeguimiento()==true) {
+            if (consul.requiereSeguimiento()) {
                 contador++;
             }
         }
@@ -48,6 +55,9 @@ public class HistoriaClinica {
     }
 
     public double calcularCostoPromedio() {
+        if (consultasRegistradas == null || consultasRegistradas.isEmpty()) {
+            return 0.0;
+        }
         double suma = 0;
         for (Consulta consul : consultasRegistradas) {
             suma += consul.getCosto();
@@ -56,7 +66,10 @@ public class HistoriaClinica {
     }
 
     public Consulta obtenerConsultaMayorCosto() {
-        Consulta mayor =consultasRegistradas.get(0);
+        if (consultasRegistradas == null || consultasRegistradas.isEmpty()) {
+            return null;
+        }
+        Consulta mayor = consultasRegistradas.get(0);
         for (Consulta consul : consultasRegistradas) {
             if (consul.getCosto() > mayor.getCosto()) {
                 mayor = consul;
@@ -111,5 +124,13 @@ public class HistoriaClinica {
 
     public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
+    }
+
+    public int getCapacidadMaxima() {
+        return capacidadMaxima;
+    }
+
+    public void setCapacidadMaxima(int capacidadMaxima) {
+        this.capacidadMaxima = capacidadMaxima;
     }
 }
