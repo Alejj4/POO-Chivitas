@@ -23,8 +23,13 @@ public class Paciente {
         return añoActual - añoInt;
     }
 
-    public boolean registrarConsulta(Consulta consulta) {
-        return this.historiaClinica.agregarConsulta(consulta);
+    public void registrarConsulta(Consulta consulta) {
+        if(historiaClinica.agregarConsulta(consulta)){
+            System.out.println("Se agrego la consulta");
+        }
+        else{
+            System.out.println("No se pudo agregar la consulta");
+        }
     }
 
 

@@ -14,13 +14,14 @@ public class HistoriaClinica {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public void agregarConsulta(Consulta consulta){
+    public boolean agregarConsulta(Consulta consulta){
         if(cantidadConsultas<= this.consultasRegistradas.size()){
             consultasRegistradas.add(consulta);
             System.out.println("Se agrego la consulta");
+            return true;
         }
         else{
-            System.out.println("No se pudo agregar la consulta");
+            return false;
         }
 
     }
