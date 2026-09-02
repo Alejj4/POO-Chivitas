@@ -81,15 +81,35 @@ public class HistoriaClinica {
         return contador;
     }
 
+    public int getNumeroHistoria() {
+        return numeroHistoria;
+    }
 
+    public void setNumeroHistoria(int numeroHistoria) {
+        this.numeroHistoria = numeroHistoria;
+    }
 
+    public List<Consulta> getConsultasRegistradas() {
+        return consultasRegistradas;
+    }
 
+    public void setConsultasRegistradas(List<Consulta> consultasRegistradas) {
+        this.consultasRegistradas = consultasRegistradas;
+    }
 
+    public int getCantidadConsultas() {
+        return cantidadConsultas;
+    }
 
+    public void setCantidadConsultas(int cantidadConsultas) {
+        this.cantidadConsultas = cantidadConsultas;
+    }
 
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
 
-
-
-
-
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
 }

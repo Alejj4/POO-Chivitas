@@ -32,6 +32,28 @@ public class Paciente {
         }
     }
 
+    //public int obtenerEdad() {no se como hacerlo}
+
+    public double obtenerCostoTotalConsultas() {
+        double total = 0;
+        boolean descuento=false;
+        if(obraSocial!=null){
+            descuento=true;
+        }
+        for (Consulta consul : historiaClinica.getConsultasRegistradas()) {
+            total += consul.costoFinal(descuento);
+        }
+        return total;
+    }
+
+    public boolean necesitaSeguimiento() {
+        return historiaClinica.ConsultasSeguimiento() > 0;
+    }
+
+
+
+
+
 
 
 }
