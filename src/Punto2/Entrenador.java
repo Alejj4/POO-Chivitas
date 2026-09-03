@@ -34,4 +34,13 @@ public class Entrenador {
     public void setExperiencia(int experiencia) {
         this.experiencia = experiencia;
     }
+
+    @Override
+    public String toString() {
+        return "Entrenador{" +
+                "DNI=" + DNI +
+                ", nombre='" + nombre + '\'' +
+                ", experiencia=" + experiencia +
+                '}';
+    }
 }

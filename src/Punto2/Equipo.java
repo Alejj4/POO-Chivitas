@@ -40,7 +40,7 @@ public class Equipo {
 
     }
 
-    public Entrenador buscarEntrenador() {
+    public Entrenador obtenerEntrenador() {
         if(entrenadorActual== null){
             System.out.println("No exsiste un entrenador asignado actualmente--------------------------------------------");
             return null;
@@ -53,7 +53,7 @@ public class Equipo {
     }
 
 
-    public void mostrarInfomacion() {
+    public void mostrarInformacion() {
         System.out.println("Equipo" +
                 "nombre='" + nombre  +
                 ", categoria='" + categoria +

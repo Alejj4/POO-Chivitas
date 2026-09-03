@@ -1,12 +1,12 @@
 package Punto3;
 
-public class Libros {
+public class Libro {
     private String ISBN;
     private String titulo;
     private String autor;
     private int cantidadPaginas;
 
-    public Libros(String ISBN,String titulo, String autor,int cantidadPaginas) {
+    public Libro(String ISBN, String titulo, String autor, int cantidadPaginas) {
         this.ISBN = ISBN;
         this.autor = autor;
         this.titulo = titulo;

@@ -4,7 +4,6 @@ public class Pedido {
     private int numero;
     private String estado;
     private int total;
-    private Notificador notificador;
 
     public int getNumero() {
         return numero;
@@ -13,9 +12,7 @@ public class Pedido {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    public Notificador getNotificador() {
-        return notificador;
-    }
+
     public String getEstado() {
         return estado;
     }
@@ -32,10 +29,9 @@ public class Pedido {
         this.total = total;
     }
 
-    public Pedido(int numero, String estado, int total,Notificador notificador) {
+    public Pedido(int numero, String estado, int total) {
         this.numero = numero;
         this.estado = estado;
         this.total = total;
-        this.notificador = notificador;
     }
 }

@@ -1,18 +1,18 @@
 package Punto3;
 import java.util.ArrayList;
 
-public class Bliblioteca {
+public class Biblioteca {
     private String nombre;
     private String Direccion;
-    private ArrayList<Libros> listaLibros;
+    private ArrayList<Libro> listaLibros;
 
-    public Bliblioteca(String nombre, String direccion) {
+    public Biblioteca(String nombre, String direccion) {
         this.nombre = nombre;
         Direccion = direccion;
         this.listaLibros = new ArrayList<>();
     }
 
-    public boolean agregarLibro(Libros libro){
+    public boolean agregarLibro(Libro libro){
         if(libro !=null){
           this.listaLibros.add(libro);
             return true;
@@ -22,8 +22,8 @@ public class Bliblioteca {
         }
     }
 
-    public Libros buscarPorIsbn(String ISBN){
-            for (Libros buscador: listaLibros){
+    public Libro buscarPorIsbn(String ISBN){
+            for (Libro buscador: listaLibros){
                 String valorBusqueda=buscador.getISBN();
                 if(valorBusqueda.equalsIgnoreCase(ISBN)){
                     return buscador;
@@ -38,7 +38,7 @@ public class Bliblioteca {
     }
 
     public boolean retirarLibro(String ISBN){
-        Libros retiroLibro = buscarPorIsbn( ISBN);
+        Libro retiroLibro = buscarPorIsbn( ISBN);
         if (retiroLibro !=null){
             listaLibros.remove(retiroLibro);
             return true;
@@ -52,14 +52,14 @@ public class Bliblioteca {
         return listaLibros.size();
     }
 
-    public Libros obtenerLibrosMasExtenso(){
+    public Libro obtenerLibroMasExtenso(){
         if (listaLibros.size()==0){
             System.out.println("No hay libros en la libreria");
             return null;
         }
         else{
-            Libros masLargo = this.listaLibros.get(0);
-            for (Libros seguimiento: listaLibros){
+            Libro masLargo = this.listaLibros.get(0);
+            for (Libro seguimiento: listaLibros){
                 if(seguimiento.getCantidadPaginas()>masLargo.getCantidadPaginas()){
                     masLargo= seguimiento;
                 }
@@ -69,12 +69,12 @@ public class Bliblioteca {
         }
     }
 
-    public void obtenerCatalogo(){
+    public void mostrarCatalogo(){
         if(listaLibros.size()==0){
             System.out.println("No hay libros en la libreria");
         }
         else{
-            for (Libros catalogo: listaLibros){
+            for (Libro catalogo: listaLibros){
                 System.out.println(catalogo);
             }
 

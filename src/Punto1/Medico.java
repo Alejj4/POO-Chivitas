@@ -8,7 +8,7 @@ public class Medico {
     private String especialidad;
     private List<Paciente> pacientes;
 
-    public Medico(String matricula, String nombre, String especialida) {
+    public Medico(String matricula, String nombre, String especialidad) {
         this.matricula = matricula;
         this.nombre = nombre;
         this.especialidad = especialidad;

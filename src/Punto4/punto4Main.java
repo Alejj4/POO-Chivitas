@@ -1,39 +1,22 @@
 package Punto4;
 
-import java.util.Scanner;
-
 public class punto4Main {
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        GestorPedido gestor = new GestorPedido();
 
-        GestorPedido gestor = new GestorPedido(2);
-        Notificador noti1 = new Notificador("Alejo", "ale@gmail.com");
-        Notificador noti2 = new Notificador("Gonzalo", "gonza@gmail.com");
+        Pedido p1 = new Pedido(101, "PENDIENTE", 4500);
+        Pedido p2 = new Pedido(102, "EN_PREPARACION", 8200);
 
-        gestor.crearPedido(noti1);
-        gestor.crearPedido(noti2);
-        gestor.crearPedido(noti1);
+        Notificador notiCliente1 = new Notificador("Alejo (ale@gmail.com)");
+        Notificador notiCliente2 = new Notificador("Gonzalo (+5491112345678)");
 
+        System.out.println("Notificación 1 Email");
+        gestor.marcarComoListo(p1, notiCliente1, 2);
 
-        for (int i = 0; i < gestor.getTotalPedidos(); i++) {
-            Pedido pedido = gestor.getPedido(i);
+        System.out.println("\notificación 2 SMS");
+        gestor.marcarComoListo(p2, notiCliente2, 1);
 
-            System.out.println("\nPedido número: " + pedido.getNumero());
-            System.out.println("Seleccione notificación:");
-            System.out.println("1 - SMS");
-            System.out.println("2 - Email");
-
-            int opcion = sc.nextInt();
-
-            while (opcion != 1 && opcion != 2) {
-                System.out.println("Opción incorrecta. Elija 1 o 2:");
-                opcion = sc.nextInt();
-            }
-
-            gestor.modificarEstado(pedido, noti1, opcion);
-            gestor.modificarEstado(pedido, noti2, opcion);
-
-        }
+        System.out.println("\nprueba para ver duplicados");
+        gestor.marcarComoListo(p1, notiCliente1, 2);
     }
 }

@@ -1,6 +1,6 @@
 package Punto1;
 
-public class Hospital{
+public class Principal{
     public static void main(String[] args) {
 
         Paciente p1 = new Paciente("123456789", "Tiziano", "osde");
